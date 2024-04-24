@@ -17,3 +17,7 @@ This new version of the website will include:
 This project is built with the following technologies:
 
 - **[Astro](https://astro.build/)**: The web framework for content-driven websites
+
+## Hack club
+
+Klubowiczów zachęcam również do spróbowania ożywienia tej strony i dodania jej funkcjonalności
