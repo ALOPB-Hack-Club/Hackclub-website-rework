@@ -1,4 +1,4 @@
-# ALOPB HackClub Website
+# ALOPB HackClub Website [🛠️ WORK IN PROGRESS 🛠️]
 
 Welcome to the repository for the ALOPB HackClub! This project is a complete rework of the original ALOPB HackClub website, with a modern design and enhanced features aimed at providing an improved user experience and better engagement with club members.
 
@@ -12,7 +12,7 @@ This new version of the website will include:
 - **Blog**: A section for news and updates about the club activities.
 - **Interactive Elements**: Interactive components to engage users, such as quizzes and polls.
 
-## 🛠️ Built With
+## 🛠️ Built With 
 
 This project is built with the following technologies:
 
