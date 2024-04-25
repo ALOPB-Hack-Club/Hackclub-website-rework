@@ -1,4 +1,4 @@
-# ALOPB HackClub Website [🛠️ WORK IN PROGRESS 🛠️]
+# ALOPB HackClub Website [🛠️ WORK IN PROGRESS 🛠️]
 
 Welcome to the repository for the ALOPB HackClub! This project is a complete rework of the original ALOPB HackClub website, with a modern design and enhanced features aimed at providing an improved user experience and better engagement with club members.
 
