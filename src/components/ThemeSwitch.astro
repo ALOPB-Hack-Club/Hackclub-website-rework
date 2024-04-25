@@ -6,7 +6,7 @@ import { Icon } from "astro-icon/components";
     const button = document.getElementById('theme-toggle');
     button?.addEventListener('click', themeSwitch);
     function themeSwitch() {
-        const currentTheme = document.quertSelector('html')?.getAttribute('data-theme');
+        const currentTheme = document.querySelector('html')?.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         document.querySelector('html')?.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
