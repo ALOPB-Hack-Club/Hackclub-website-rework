@@ -48,6 +48,7 @@
   .footer-container text {
       color: black;
       filter: var(--invert);
+      scale: 0.5
   }
 
   .top-bar {
@@ -89,17 +90,16 @@
     color: white;
     filter: brightness(0) var(--invert); /* makes images white */
   }
-  .icons {
-  /* default size for desktop */
-  width: 24px;
-  height: 24px;
-  }
+
   @media (max-width: 768px) {
-      .icons {
-          /* smaller size for mobile */
-          width: 18px;
-          height: 18px;
-      }
+    .icons {
+        /* smaller size for mobile */
+        width: 18px;
+        height: 18px;
+    }
+    .footer-container text {
+      scale: 0.5
+    }
   }
 </style>
   
