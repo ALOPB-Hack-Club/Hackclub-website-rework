@@ -16,7 +16,7 @@ const { title } = Astro.props;
 	<head>
     <script is:inline>
       const theme = localStorage.getItem('theme');
-      if (theme) {
+      if (theme === 'dark') {
           document.querySelector('html').setAttribute('data-theme', theme);
       }
     </script>
