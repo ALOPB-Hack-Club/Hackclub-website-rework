@@ -17,16 +17,18 @@ import ThemeSwitch from '../components/ThemeSwitch.astro';
         <title>{title}</title>
     </head>
     <body>
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px">
             
         <button class="back-button" onclick="location.href='/docs'">
             <Icon name="back-arrow" style="color: var(--text); width:20px;height:20px;" />
         </button>
-            <div style="padding: 5px;">
+            <div>
                 <ThemeSwitch />
             </div>
         </div>
+        <div class="content">
         <slot />
+        </div>
     </body>
 </html>
 <style is:global>
@@ -243,6 +245,9 @@ button.cta {
     var(--orange),
     var(--red)
   );
+}
+.content {
+    padding: 20px;
 }
 </style>
 <script>
