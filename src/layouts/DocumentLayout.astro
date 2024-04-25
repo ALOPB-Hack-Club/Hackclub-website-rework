@@ -8,6 +8,12 @@ import ThemeSwitch from '../components/ThemeSwitch.astro';
 <!doctype html>
 <html lang="en">
     <head>
+        <script is:inline>
+            const theme = localStorage.getItem('theme');
+            if (theme) {
+                document.querySelector('html').setAttribute('data-theme', theme);
+            }
+          </script>
         <meta charset="UTF-8" />
         <meta name="url" content={import.meta.env.URL} />
         <meta name="description" content="ALOPB HackClub" />

@@ -8,17 +8,10 @@ import { Icon } from "astro-icon/components";
     function themeSwitch() {
         const currentTheme = document.body.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        document.body.setAttribute('data-theme', newTheme);
+        document.querySelector('html')?.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        document.cookie = `theme=${newTheme}; path=/`;
+
     }
-    // On page load, set the theme from localStorage
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.body.setAttribute('data-theme', savedTheme);
-        }
-    });
 </script>
 
 
