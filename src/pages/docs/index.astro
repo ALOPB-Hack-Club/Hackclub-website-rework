@@ -6,16 +6,33 @@ export const content = await Astro.glob("./*.md");
 
 <Layout title="Docs">
     <main>
-        {
-            content.map((site, i) => (
-                <Card
-                    href={site.url ?? "/"}
-                    title={`${i + 1}. ${
-                        site.frontmatter.title ?? site.getHeadings()[0].text
-                    }`}
-                    body={site.frontmatter.body}
-                />
-            ))
-        }
+        <div class="card-container">
+            {
+                content.map((site, i) => (
+                    <Card
+                        href={site.url ?? "/"}
+                        title={`${i + 1}. ${
+                            site.frontmatter.title ?? site.getHeadings()[0].text
+                        }`}
+                        image={`/docs-img/${i + 1}.png`}
+                    />
+                ))
+            }
+        </div>
     </main>
 </Layout>
+
+<style>
+    .card-container {
+        padding: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .card-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
