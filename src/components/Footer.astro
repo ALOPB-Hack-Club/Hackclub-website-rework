@@ -8,86 +8,98 @@
     };
 ---
   
-  <footer style="margin-top: auto">
-    <div class="footer-container">
-      <div class="top-bar"></div>
-      <div class="content-section">
-        <div class="left-section">
-          © 2024 ALO HackClub
-        </div>
-        <div class="middle-section">
-          <!-- Icons for social media -->
-          <a href={links.github} target="_blank" aria-label="GitHub">
-            <Icon name="github" class="icons"/>
-          </a>
-          <a href={links.facebook} target="_blank" aria-label="Facebook">
-            <Icon name="facebook" class="icons"/>
-          </a>
-          <a href={links.hackClub} target="_blank" aria-label="Hack Club">
-            <Icon name="hackclub" class="icons"/>
-          </a>
-          <a href={links.discord} target="_blank" aria-label="Discord">
-            <Icon name="discord" class="icons"/>
-          </a>
-        </div>
-        <div class="right-section">
-          <!-- Optional content for the right section if needed -->
-        </div>
+<footer style="margin-top: auto">
+  <div class="footer-container">
+    <div class="top-bar"></div>
+    <div class="content-section">
+      <div class="left-section">
+        © 2024 ALO HackClub
+      </div>
+      <div class="middle-section">
+        <!-- Icons for social media -->
+        <a href={links.github} target="_blank" aria-label="GitHub">
+          <Icon name="github" class="icons"/>
+        </a>
+        <a href={links.facebook} target="_blank" aria-label="Facebook">
+          <Icon name="facebook" class="icons"/>
+        </a>
+        <a href={links.hackClub} target="_blank" aria-label="Hack Club">
+          <Icon name="hackclub" class="icons"/>
+        </a>
+        <a href={links.discord} target="_blank" aria-label="Discord">
+          <Icon name="discord" class="icons"/>
+        </a>
+      </div>
+      <div class="right-section">
+        <!-- Optional content for the right section if needed -->
       </div>
     </div>
-  </footer>
-  
-  <style>
-    .footer-container {
-      z-index: 100;
-      position: relative;
-      background-color: var(--header-color);
-      color: var(--text);
-      text-align: left;
-    }
-    .footer-container text {
-        color: black;
-        filter: var(--invert);
-    }
-  
-    .top-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background-color: var(--bar); /* Adjust color as needed */
-    }
-  
-    .content-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-    }
-  
-    .left-section {
-      left: 10px;
-      flex: 1;
-    }
-  
-    .middle-section {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-  
-    .right-section {
-      flex: 1;
-      text-align: right;
-    }
-  
-    .icons {
-      margin: 15px;
-      width: 50px;
-      height: 50px; /* adjust size as needed */
-      color: white;
-      filter: brightness(0) var(--invert); /* makes images white */
-    }
-  </style>
+  </div>
+</footer>
+
+<style>
+  .footer-container {
+    z-index: 100;
+    position: relative;
+    background-color: var(--header-color);
+    color: var(--text);
+    text-align: left;
+  }
+  .footer-container text {
+      color: black;
+      filter: var(--invert);
+  }
+
+  .top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--bar); /* Adjust color as needed */
+  }
+
+  .content-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .left-section {
+    left: 10px;
+    flex: 1;
+  }
+
+  .middle-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .right-section {
+    flex: 1;
+    text-align: right;
+  }
+
+  .icons {
+    margin: 15px;
+    width: 50px;
+    height: 50px; /* adjust size as needed */
+    color: white;
+    filter: brightness(0) var(--invert); /* makes images white */
+  }
+  .icons {
+  /* default size for desktop */
+  width: 24px;
+  height: 24px;
+  }
+  @media (max-width: 768px) {
+      .icons {
+          /* smaller size for mobile */
+          width: 18px;
+          height: 18px;
+      }
+  }
+</style>
   
