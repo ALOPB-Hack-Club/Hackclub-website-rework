@@ -11,8 +11,9 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
             </div>
             <div class="middle-section">
                 <a href="/">
-                    <img src="/logo.png" alt="logo_alo" class="logo">
+                    <img src="/logo.png" alt="logo_alo" id="logo" class="logo">
                 </a>
+                <div class="text"><span class="gradient-text"><b>ALOPB</b></span> Hack Club</div>
             </div>
             <div class="right-section">
                 <ThemeSwitch/>
@@ -22,7 +23,7 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
     </div>
 </header>
   
-  <style>
+  <style is:inline>
     .header-container {
       position: relative;
     }
@@ -44,23 +45,29 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
       height: 4px;
       background-color: var(--bar);
     }
-  
-    .left-section, .right-section {
+
+    .middle-section {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+    }
+
+    .left-section {
+      display: flex;
+      align-items: center;
+      animation: menuFadeIn 1s ease-out forwards;
+    }
+    .right-section {
+      display: flex;
+      align-items: center;
+      animation: themeFadeIn 1s ease-out forwards;
     }
     
-    #menu-button{
-        width: 100px; 
-        height: 100px; 
-        border-radius: 10px;
-        transition: background-color 0.3s
-    } 
-    .theme-button, .login-button {
+    .theme-button {
       transition: background-color 0.3s;
     }
   
-    .menu-button:hover, .theme-button:hover, .login-button:hover {
+    .menu-button:hover, .theme-button:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
   
@@ -68,7 +75,63 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
       width: 75px; 
       height: auto;
       border-radius: 8px;
+      animation: logoFadeIn 1.25s ease-out forwards;
+      margin-right: 10px;
+      z-index: 2;
     }
+    .text {
+      font-size: 24px;
+      animation: textFadeIn 1.25s ease-out forwards;
+      z-index: 1;
+    }
+    .gradient-text {
+        background: linear-gradient(90deg, var(--primary), var(--white));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    @keyframes logoFadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes textFadeIn {
+        0% {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes menuFadeIn {
+      0%{
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100%{
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes themeFadeIn {
+      0%{
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100%{
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
 
     @media (max-width: 768px) {
       .menu-button, .theme-button, .login-button {
@@ -77,5 +140,5 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
       .logo {
         width: 50px;
       }
-    
+    }
   </style>
