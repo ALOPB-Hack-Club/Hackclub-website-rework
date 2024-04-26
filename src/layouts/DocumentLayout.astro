@@ -102,7 +102,7 @@ import ThemeSwitch from '../components/ThemeSwitch.astro';
   --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-light));
   --menu-card-color: var(--darkest);
   --card-color: var(--dark);
-  --code-bg: var(--darkest);
+  --code-bg: rgba(236, 55, 80, .3) ;
   --link: var(--accent);
   --link-visited: var(purple);
 
@@ -173,12 +173,12 @@ import ThemeSwitch from '../components/ThemeSwitch.astro';
         font-size: $base-font-size;
         line-height: 100%;
         background-color: var(--code-bg);
-        padding: 0.3em 0.5em;
+        padding: 1px 2px;
         overflow-wrap: break-word;
         border-radius: 5px;
     }
 
-    pre code {
+    pre code {,47\, ,
         border: none;
         background: none;
         font-size: $base-font-size * 0.875;
