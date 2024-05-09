@@ -4,7 +4,7 @@
 <script >
   import 'cal-heatmap/cal-heatmap.css';
   import { render } from 'astro/compiler-runtime';
-  import CalHeatmap from 'cal-heatmap';
+  const CalHeatmap = require('cal-heatmap');
   const cal = new CalHeatmap();
   cal.paint({
     range: 24,
