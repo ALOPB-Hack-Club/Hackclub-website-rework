@@ -76,8 +76,9 @@ if (cachedData && isCacheValid) {
   mergedData = JSON.parse(cachedData);
 } else {
   // Fetch data
-  const zajecia = await fetch('http://localhost:4321/api/classes.json').then(res => res.json());
-  const data = await fetch('http://localhost:4321/api/hackathons.json').then(res => res.json());
+  const zajecia = await fetch('/api/classes.json').then(res => res.json());
+  cal.fill(zajecia);
+  const data = await fetch('/api/hackathons.json').then(res => res.json());
   mergedData = [...zajecia, ...data];
 
   // Cache data
