@@ -42,6 +42,7 @@ if (virtual) {
             padding: 10px;
             text-decoration-line: none;
             color: white;
+            flex-shrink: 0;
         }
 
 .card > * {
@@ -84,27 +85,7 @@ if (virtual) {
 }
 </style>
 
-<script is:inline>
-window.addEventListener('DOMContentLoaded', (event) => {
-  const card = document.querySelector('.card');
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const xc = rect.width / 2;
-    const yc = rect.height / 2;
-    const dx = (x - xc) / 10; 
-    const dy = -(y - yc) / 10; 
-    card.style.transform = `rotateY(${dx}deg) rotateX(${dy}deg)`;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
-</script>
-
-<a href={url} target="_blank" rel="noopener noreferrer" class="card" style={`background: radial-gradient(rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5)), url(${backgroundImage}); background-size: cover;`}>
+<a href={url} target="_blank" rel="noopener noreferrer" class="card" style={`background: radial-gradient(rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5)), url(${backgroundImage || '/default_card_bg.jpg'}); background-size: cover;`}>
 <span class="event-type"><b>{eventType}</b></span>
 <img src={logo} alt="logo" loading="lazy" style="object-fit: contain;">
 <h1>{name}</h1>
