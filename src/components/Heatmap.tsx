@@ -40,7 +40,8 @@ cal.paint({
   subDomain: {
     type: 'day',
     width: 15,
-    height: 15
+    height: 15,
+    radius: 5,
   },
   date: {
     start: new Date(new Date().getFullYear(), 1, 1),
