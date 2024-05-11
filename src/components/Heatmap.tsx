@@ -1,4 +1,3 @@
-import type { FunctionalComponent } from 'preact';
 import 'cal-heatmap/cal-heatmap.css';
 import { render } from 'astro/compiler-runtime';
 import CalHeatmap from 'cal-heatmap';
@@ -77,9 +76,9 @@ if (cachedData && isCacheValid) {
   mergedData = JSON.parse(cachedData);
 } else {
   // Fetch data
-  const zajecia = await fetch('/api/classes.json').then(res => res.json());
+  const zajecia = await fetch('./api/classes.json').then(res => res.json());
   cal.fill(zajecia);
-  const data = await fetch('/api/hackathons.json').then(res => res.json());
+  const data = await fetch('./api/hackathons.json').then(res => res.json());
   mergedData = [...zajecia, ...data];
 
   // Cache data
