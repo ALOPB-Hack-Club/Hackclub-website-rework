@@ -4,10 +4,17 @@ import Card from '../components/Card.astro';
 ---
 
 <Layout title="ALO Hackclub">
+	<style>
+	  .calendar-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	  }
+	</style>
 	<main>
-		<div class="calendar-container">
-			<div id="cal-heatmap" class="calendar"></div>
-		  </div>
-		<script src="../components/Heatmap.tsx"/>
+	  <div class="calendar-container">
+		<div id="cal-heatmap" class="calendar"></div>
+	  </div>
+	  <script src="../components/Heatmap.tsx"/>
 	</main>
-</Layout>
+  </Layout>
