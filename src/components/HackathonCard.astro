@@ -13,15 +13,24 @@ interface Props {
 const {url, backgroundImage, location, name, logo, virtual, hybrid} = Astro.props;
 let eventType;
 if (virtual) {
-  eventType = "Zdalnie";
+    eventType = "Zdalnie";
 } else if (hybrid) {
-  eventType = "Hybrydowo";
+    eventType = "Hybrydowo";
 } else {
-  eventType = "Stacjonarnie";
+    eventType = "Stacjonarnie";
 }
 ---
 
-    <style>
+<a href={url} target="_blank" rel="noopener noreferrer" class="card" style={`background: radial-gradient(rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5)), url(${backgroundImage || '/default_card_bg.jpg'}); background-size: cover;`}>
+<span class="event-type"><b>{eventType}</b></span>
+<img src={logo} alt="logo" loading="lazy" style="object-fit: contain;">
+<h1>{name}</h1>
+<footer>
+  <span><b>{location}</b></span>
+</footer>
+</a>
+
+<style>
         .card {
             display: flex;
             flex-direction: column;
@@ -84,12 +93,3 @@ if (virtual) {
   opacity: 1;
 }
 </style>
-
-<a href={url} target="_blank" rel="noopener noreferrer" class="card" style={`background: radial-gradient(rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.5)), url(${backgroundImage || '/default_card_bg.jpg'}); background-size: cover;`}>
-<span class="event-type"><b>{eventType}</b></span>
-<img src={logo} alt="logo" loading="lazy" style="object-fit: contain;">
-<h1>{name}</h1>
-<footer>
-  <span><b>{location}</b></span>
-</footer>
-</a>
