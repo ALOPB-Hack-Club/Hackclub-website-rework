@@ -37,7 +37,7 @@ const GenEmpty = ({ url, backgroundImage, hybrid, virtual, logo, name, location 
 };
 
 const UpcomingHachathons = () => {
-    const emptyVal = {url: '/',backgroundImage:'/default_card_bg.png', hybrid:false, virtual:false, logo:'/loading.gif', name:'Ładowanie Zawartości', location:''} 
+    const emptyVal = {url: '#',backgroundImage:'/default_card_bg.png', hybrid:false, virtual:false, logo:'/loading.gif', name:'Ładowanie Zawartości', location:''} 
     const [hackathons, setHackathons] = useState([emptyVal, emptyVal, emptyVal, emptyVal, emptyVal, emptyVal])
 
     useEffect(() => {
