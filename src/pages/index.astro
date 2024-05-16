@@ -1,20 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HackathonCard from '../components/HackathonCard.astro';
-const link = new URL("/api/upcoming.json", Astro.url)
-const hackathons = await fetch(link).then(res => res.json());
-interface Hackathon {
-	name: string;
-	city: string;
-	state: string;
-	country: string;
-	website: string;
-	banner: string;
-	logo: string;
-	virtual: boolean;
-	hybrid: boolean;
-}
-
+import UpcomingHachathons from '../components/UpcomingHackathons'
 ---
 
 <Layout title="ALO Hackclub">
@@ -25,14 +11,7 @@ interface Hackathon {
         align-items: center;
         height: 200px;
       }
-      .upcoming-hackathons {
-        display: inline-flex;
-        justify-content: left;
-        overflow-x: auto;
-        width: 100%;
-        gap: 30px;
-		padding: 20px;
-      }
+      
     </style>
     <main>
       <div class="calendar-container">
@@ -41,19 +20,8 @@ interface Hackathon {
       <script src="../components/Heatmap.tsx"/>
 	  <h1>Nadchodzące hackathony</h1>
       <div class='upcoming-hackathons' id='scrollable-div'>
-        {
-            hackathons.map((hackathon: Hackathon) => (
-                <HackathonCard
-                    url={hackathon.website} 
-                    backgroundImage={(hackathon.banner.includes('(') || hackathon.banner.includes(')')) ? '/default_card_bg.jpg' : hackathon.banner} 
-                    location={`${hackathon.city || ''}${hackathon.city && hackathon.state ? ', ' : ''}${hackathon.state || ''}${hackathon.state && hackathon.country ? ', ' : ''}${hackathon.country || ''}`} 
-                    name={hackathon.name} 
-                    logo={hackathon.logo}
-                    virtual={hackathon.virtual}
-                    hybrid={hackathon.hybrid} 
-                />
-            ))
-        }
+          <UpcomingHachathons client:load/>
       </div>
     </main>
+    
 </Layout>

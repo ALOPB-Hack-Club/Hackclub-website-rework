@@ -1,0 +1,72 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    --blur: 16px;
+    --size: clamp(200px, 50vmin, 450px);
+    width: var(--size);
+    aspect-ratio: 16 / 9;
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+    color: #000;
+    transition: transform 0.3s;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    position: relative;
+    padding: 10px;
+    text-decoration-line: none;
+    color: white;
+    flex-shrink: 0;
+}
+
+.card > * {
+margin: 5px; 
+}
+.card img {
+width: 100px; 
+height: 100px; 
+object-fit: contain;
+margin: 2px; 
+}
+.card a {
+text-decoration: none; 
+}
+.card .walter {
+    color: white;
+}
+.card .event-type {
+background-color: white;
+color: red;
+padding: 5px 10px; 
+border-radius: 10px;
+align-self: flex-end;
+}
+
+.card::before {
+content: "";
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);
+transform: rotate(0deg);
+transition: transform 0.3s, opacity 0.3s;
+opacity: 0;
+}
+
+.card:hover::before {
+transform: rotate(180deg);
+opacity: 1;
+}
+
+.upcoming-hackathons {
+    display: inline-flex;
+    justify-content: left;
+    overflow-x: auto;
+    width: 100%;
+    gap: 30px;
+        padding: 20px;
+  }
