@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import UpcomingHachathons from '../components/UpcomingHackathons'
+import Heatmap from '../components/Heatmap'
 ---
 
 <Layout title="ALO Hackclub">
@@ -16,8 +17,8 @@ import UpcomingHachathons from '../components/UpcomingHackathons'
     <main>
       <div class="calendar-container">
         <div id="cal-heatmap" class="calendar" style="box-shadow: inset 0px 0px 18px -1px rgb(0, 0, 0); padding: 1em;"></div>
+        <Heatmap client:only/>
       </div>
-      <script src="../components/Heatmap.tsx"/>
 	  <h1>Nadchodzące hackathony</h1>
       <div class='upcoming-hackathons' id='scrollable-div'>
           <UpcomingHachathons client:load/>
