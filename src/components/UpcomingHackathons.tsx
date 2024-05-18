@@ -47,21 +47,14 @@ const UpcomingHachathons = () => {
                 const data: any = await res.json();
                 const hackathons:any = []
                 data.map((hackathon: any) => {
-                    let eventType: string;
-                    if (hackathon.virtual) {
-                        eventType = "Zdalnie";
-                    } else if (hackathon.hybrid) {
-                        eventType = "Hybrydowo";
-                    } else {
-                        eventType = "Stacjonarnie";
-                    }
                     hackathons.push({
                         url:hackathon.website,
                         backgroundImage:(hackathon.banner.includes('(') || hackathon.banner.includes(')')) ? '/default_card_bg.png' : hackathon.banner,
                         location:`${hackathon.city || ''}${hackathon.city && hackathon.state ? ', ' : ''}${hackathon.state || ''}${hackathon.state && hackathon.country ? ', ' : ''}${hackathon.country || ''}`,
                         name:hackathon.name,
                         logo:hackathon.logo,
-                        eventType:eventType,
+                        hybrid:hackathon.hybrid,
+                        virtual:hackathon.virtual
                     })
                 })
                 setHackathons(hackathons);

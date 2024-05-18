@@ -24,7 +24,7 @@ export default function Cal() {
 
   const cal = new CalHeatmap();
   let data = generatePat();
-
+  const hits = {};
   cal.paint(
     {
       range: 24,
@@ -46,14 +46,17 @@ export default function Cal() {
         start: new Date(new Date().getFullYear(), 1, 1),
         min: new Date(new Date().getFullYear() - 2, 1, 1),
         max: new Date(new Date().getFullYear() + 2, 0, 31),
+        highlight: [new Date()]
       },
       data: {
         source: data,
         x: (datum) => {
           return +new Date(datum["start"]);
         },
-        y: (ran) => {
-          return Math.random() * 30;
+        y: (val) => {
+          const ran = Math.random() * 30;
+          hits[ran] = val["name"]
+          return ran;
         },
         defaultValue: null,
       },
@@ -71,7 +74,7 @@ export default function Cal() {
         Tooltip,
         {
           text: function (timestamp, value, dayjsDate) {
-            return `XDDDD`;
+              return hits[value] || "No events";
           },
         },
       ],
@@ -89,14 +92,21 @@ export default function Cal() {
     ]
   );
   render(cal, place);
+
   async function fetchEvents() {
     const classes = await fetch("/api/classes.json").then((res) => res.json());
     const hack = await fetch("/api/hackathons.json").then((res) => res.json());
+    classes.forEach((e) => {
+      e.value = e.name;
+    });
+    hack.forEach((e) => {
+      e.value = e.name;
+    });
     data = [...classes, ...hack];
     return data;
   }
   let intervalId;
-
+  
   const fetchData = async () => {
     let iter = 2
     intervalId = setInterval(() => {
@@ -107,9 +117,7 @@ export default function Cal() {
     }, 150);
 
     const data = await fetchEvents();
-
     clearInterval(intervalId); 
-
     cal.fill(data);
   };
 
